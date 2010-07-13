@@ -59,4 +59,31 @@ module MemberTags
   tag 'member:sessions' do |tag|
     "#{MemberExtensionSettings.defaults[:sessions_path]}"
   end
+  
+  desc %{
+    Wrap this tag around HTML that requires a user to be logged in (eg. logout and top nav links).
+    
+    *Usage*:
+    <pre><code><r:member:if_logged_in>...</r:member:if_logged_in></code></pre>
+  }
+  tag 'member:if_logged_in' do |tag|
+    current_member = tag.locals.page.current_member
+    if (!current_member.blank? && current_member != false) then
+      tag.expand
+    end
+  end
+  
+  desc %{
+    Wrap this tag around HTML that requires a user not be logged in (eg. login and registration links).
+    
+    *Usage*:
+    <pre><code><r:member:unless_logged_in>...</r:member:unless_logged_in></code></pre>
+  }
+  tag 'member:unless_logged_in' do |tag|
+    current_member = tag.locals.page.current_member
+    if (current_member.blank? || current_member == false) then
+      tag.expand
+    end
+  end
+
 end

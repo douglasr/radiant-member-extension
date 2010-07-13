@@ -38,6 +38,7 @@ class MemberExtension < Radiant::Extension
     end
     Page.class_eval {
       include MemberTags
+      attr_accessor :current_member
     }
   end
   

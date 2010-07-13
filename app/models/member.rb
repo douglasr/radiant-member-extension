@@ -47,7 +47,7 @@ class Member < ActiveRecord::Base
   end
   
   def self.find_all_group_by_company
-     find(:all, :group => 'company')
+     find(:all, :order => 'company')
   end
   
   def self.import_members(file)

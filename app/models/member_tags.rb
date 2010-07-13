@@ -86,4 +86,16 @@ module MemberTags
     end
   end
 
+  tag "member:name" do |tag|
+    tag.locals.page.current_member.name
+  end
+
+  tag "member:email" do |tag|
+    tag.locals.page.current_member.email
+  end
+
+  tag "member:company" do |tag|
+    tag.locals.page.current_member.company
+  end
+
 end

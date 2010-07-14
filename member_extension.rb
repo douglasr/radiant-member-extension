@@ -23,6 +23,7 @@ class MemberExtension < Radiant::Extension
         :deactivate => :post
       }
     map.resources :member_sessions, :as => MemberExtensionSettings.sessions_path
+    map.resources :member_settings, :as => MemberExtensionSettings.settings_path
     map.member_logout MemberExtensionSettings.logout_path, :controller => 'member_sessions', :action => 'destroy'
   end
   

@@ -2,8 +2,8 @@ class MemberExtensionSettings
   
   class MissingSettingError < StandardError; end
 
-  @@soft_keys     = [:login_path, :home_path, :root_path]
-  @@hard_keys     = [:logout_path, :sessions_path, :rest_auth_digest_stretches]
+  @@soft_keys     = [:login_path, :home_path, :root_path, :register_path, :allow_registration, :auto_activate_registration]
+  @@hard_keys     = [:logout_path, :sessions_path, :settings_path, :rest_auth_digest_stretches]
   @@required_keys = [:rest_auth_site_key]
   
   @@all_keys = (@@soft_keys + @@hard_keys + @@required_keys).uniq
@@ -12,8 +12,12 @@ class MemberExtensionSettings
     :login_path                 => "/login",   # The URL for the login form of your website.
     :home_path                  => "/members", # Members will be redirected here on successful login.
     :root_path                  => "members",  # Everything under this path requires member login.
+    :register_path              => "/register",
+    :allow_registration         => "false",
+    :auto_activate_registration => "false",
     :logout_path                => "/logout",
     :sessions_path              => "member_sessions",
+    :settings_path              => "member_settings",
     :rest_auth_digest_stretches => 10
   }
 

@@ -2,7 +2,7 @@ class MemberExtensionSettings
   
   class MissingSettingError < StandardError; end
 
-  @@soft_keys     = [:login_path, :home_path, :root_path, :register_path, :allow_registration, :auto_activate_registration]
+  @@soft_keys     = [:login_path, :home_path, :root_path, :register_path, :allow_registration, :auto_activate_registration, :edit_path, :allow_edit]
   @@hard_keys     = [:logout_path, :sessions_path, :settings_path, :rest_auth_digest_stretches]
   @@required_keys = [:rest_auth_site_key]
   
@@ -15,6 +15,8 @@ class MemberExtensionSettings
     :register_path              => "/register",
     :allow_registration         => "false",
     :auto_activate_registration => "false",
+    :edit_path                  => "/member_edit",
+    :allow_edit                 => "false",    
     :logout_path                => "/logout",
     :sessions_path              => "member_sessions",
     :settings_path              => "member_settings",

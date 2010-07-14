@@ -83,6 +83,20 @@ module MemberTags
   tag 'member:register:params' do |tag|
     "#{params[:member][tag.attr['name']]}" unless (params[:member].blank?)
   end
+
+  tag 'member:edit' do |tag|
+    tag.expand
+  end
+  
+  desc %{
+    Use this tag as action for the edit existing user form.
+    
+    *Usage*:
+    <pre><code><r:member:edit:form_action /></code></pre>
+  }
+  tag 'member:edit:form_action' do |tag|
+    "#{MemberExtensionSettings.defaults[:settings_path]}/#{tag.locals.page.current_member.id}"
+  end
   
   desc %{
     Wrap this tag around HTML that requires a user to be logged in (eg. logout and top nav links).
